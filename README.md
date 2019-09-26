@@ -19,7 +19,3 @@ To bin the lipid tail atom count data, we follow the same set of commands:
 gcc -lm -O2 -o lipid_tail_bin lipid_tail_bin.c
 ./lipid_tail_bin parameters_bin.dat lipid_tail_groove.dat lipid_tail_groove_binned.dat
 lipid_tail_groove.dat file contains listing of POPE and POPG lipid tail atom count in the groove, arranged in two columns. Since lipids generally have different number of atoms in their hydrocarbon tails, the output data is normalized by the overall number of atoms in the lipid tails.    
-
-
-## Repositories
-
