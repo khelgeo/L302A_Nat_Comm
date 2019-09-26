@@ -1,6 +1,6 @@
-This repository contains three C-codes to create histograms.
+This repository contains three C-codes and associated files that allows a user to create histograms from the data collected during molecular dynamics simulations.
 
-dist_bin.c creates a histogram of the distance between two groups of atoms.
+dist_bin.c creates a histogram of the distance between two groups of atoms (in the example case shown here, the distance between residues 313 and 432 of nhTMEM16).
 water_bin.c creates a histogram of the number of waters in the groove of nhTMEM16
 lipid_tail_bin.c creats a histogram of the lipid tail atom count in the groove of nhTMEM16
 
@@ -13,12 +13,12 @@ These will create executables dist_bin and water_bin. To run these executables, 
 
 ./water_bin parameters_bin.dat waters_groove.dat waters_groove_binned.dat
 
-In the above, distance_313_432.dat is the data file containing distance values between residues 313 and 432 in nhTMEM16, and water_groove.dat contains water counts in the groove of nhTMEM16. The binned data will be in distance_313_432_binned.dat and waters_groove_binned.dat files. In these binned files the first column contains bin intervals, the second - normalized probabilities, and the third - counts. 
+In the above, distance_313_432.dat is the data file containing distance values between residues 313 and 432 in nhTMEM16, and water_groove.dat contains water counts in the groove of nhTMEM16. The binned data will be written in distance_313_432_binned.dat and waters_groove_binned.dat files. In these binned files the first column contains bin intervals, the second - normalized probabilities, and the third - counts. 
 
 To bin the lipid tail atom count data, we follow the same set of commands:
 gcc -lm -O2 -o lipid_tail_bin lipid_tail_bin.c
 ./lipid_tail_bin parameters_bin.dat lipid_tail_groove.dat lipid_tail_groove_binned.dat
-lipid_tail_groove.dat file contains sequence of counts of POPE and POPG lipid tail atom count in the groove, arranged in two columns.  
+lipid_tail_groove.dat file contains listing of POPE and POPG lipid tail atom count in the groove, arranged in two columns. Since lipids generally have different number of atoms in their hydrocarbon tails, the output data is normalized by the overall number of atoms in the lipid tails.    
 
 
 ## Repositories
